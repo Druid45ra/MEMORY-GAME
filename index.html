@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Challenge - PRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="start-menu" class="screen">
+            <h2>Memory Challenge: RICKANDMORTY Edition</h2>
+
+            <div class="menu-section">
+                <h3>Alege Dificultatea:</h3>
+                <div class="difficulty-options" id="difficulty-options">
+                    <button data-size="4" class="btn-modern btn-large">Modul Ușor (4x4)</button>
+                    <button data-size="6" class="btn-modern btn-large">Modul Greu (6x6)</button>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>Alege Conținutul Cărților:</h3>
+                <div class="content-options" id="content-options">
+                    <button data-content="rickandmorty" class="btn-content">Rick & Morty (API)</button>
+                    <button data-content="pokemon" class="btn-content">Pokémon (API)</button>
+                    <button data-content="logos" class="btn-content">Logouri (Static)</button>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>Alege Stilul Spatelui Cărților:</h3>
+                <div class="theme-options" id="theme-options">
+                    <button data-theme="classic" class="btn-theme">Clasic</button>
+                    <button data-theme="space" class="btn-theme">Spațiu</button>
+                    <button data-theme="neon" class="btn-theme">Neon</button>
+                    <button data-theme="lava" class="btn-theme">Lava</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading-screen" class="screen hidden">
+            <div class="loader"></div>
+            <p>Încărcăm conținut dinamic...</p>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <header>
+                <h1>Nivel: <span id="difficulty-label"></span></h1>
+                <div class="stats-panel dashboard">
+                    <div class="stat-item">
+                        <span class="stat-label">Timp</span>
+                        <span class="stat-value" id="time">00:00</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Mutări</span>
+                        <span class="stat-value" id="moves">0</span>
+                    </div>
+                    <div class="stat-item highlight">
+                        <span class="stat-label">Record</span>
+                        <span class="stat-value" id="best-time">--:--</span>
+                    </div>
+                </div>
+
+                <button id="restart-btn" class="btn-modern">Restart</button>
+                <button id="new-game-btn" class="btn-modern btn-secondary">Meniu</button>
+
+            </header>
+
+            <div class="game-board grid-container" id="game-board">
+            </div>
+        </div>
+    </div>
+
+    <div id="victory-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Felicitări! 🎉</h2>
+            <p id="modal-message"></p>
+            <p>Timp: <span id="final-time"></span></p>
+            <p>Mutări: <span id="final-moves"></span></p>
+            <button id="modal-restart-btn" class="btn-modern">Joacă din nou</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
